@@ -9,7 +9,7 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 
 - *Pacman*:
   - Medium: *Game*
-  - Explanation: **
+  - Explanation: *The game navigates the player through a maze and they collect powerups while avoiding the villains*
 
 ## Core Gameplay Mechanics (Brief)
 
@@ -110,7 +110,7 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 
 - *Moving the character*: *The character moves according to the arrow keys. The character does not move continuously and can move as many blocks and spaces as the player wants*
 - *Completing within the time-limit: *The player should complete each round within the time limit. The time limit is 2 minutes for each round.*
-- *Correctly advancing through the rounds*: *The player must navigate throug the maze to collect the correct token within the time-limit to advance to the next round. Each round will have one correct and multiple incorrect tokens.*
+- *Correctly advancing through the rounds*: *The player must navigate through the maze to collect the correct token within the time-limit to advance to the next round. Each round will have one correct and multiple incorrect tokens.*
 - *Collecting the incorrect token:  * If the player collects an incorrect token, the number of villains chasing the player increases and *
 - *Advancing through the worlds*: *If the player completes all the rounds (5-6 rounds per world), they will advance to the next world which will be set in another programming language*
 
@@ -136,7 +136,7 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 
 ## Story (Brief)
 
-*You want to navigate the maze to get out, and the only way to do so is to collect all the right tokens and advance through thr worlds*
+*You want to navigate the maze to get out, and the only way to do so is to collect all the right tokens and advance through the worlds*
 
 ## Storyboarding
 
