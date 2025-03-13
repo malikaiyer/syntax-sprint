@@ -101,7 +101,7 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 
 # Objects/Entities
 
-- * Chicken icon main character *
+- * Robot icon main character *
 - * Bug villain (like the emoji) *
 - * Tokens that look like text boxes *
 - * Heart icons that define how many hearts the player has remaining * 
@@ -158,7 +158,7 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 - Environment Art/Textures:
   - A maze with an arcade style background
 
-
+![Enemy](./Assets/Art/blue_bug1.png) ![Main Character](/Assets/Art/robot_front.png) ![Heart](/Assets/Art/heart.png)
 ## Audio
 
 
