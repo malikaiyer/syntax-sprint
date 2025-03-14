@@ -161,14 +161,14 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 *Game region/phase/time are ways of designating a particularly important place in the game.*
 
 - Music List (Ambient sound)
-  - *Game region/phase/time*: *Example 1*, *Example 2*
-  - *Game region/phase/time*: *Example 3*, *Example 4*
+  - *background game play music*: *fun arcade style music (think super mario bros)*
+  - *background game play music when 30 seconds left*: *sped-up fun arcade style music*
   
 *Game Interactions are things that trigger SFX, like character movement, hitting a spiky enemy, collecting a coin.*
 
 - Sound List (SFX)
-  - *Game Interaction*: *Example 1*, *Example 2*
-  - *Game Interaction*: *Example 3*, *Example 4*
+  - *Collecting a right token*: *Level-up type sound (like super mario bros too)*
+  - *Collecting a wrong token*: *Sad/Disappointing sound effect*
 
 
 # Metadata
