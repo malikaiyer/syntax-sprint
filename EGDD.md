@@ -137,8 +137,7 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 
 ## Storyboarding
 
-*Go into as much detail as needs be to visually convey the Dynamics of your game. Be detailed. Create storyboards and freeze frame images that concisely capture important key elements of your game. You are strongly recommended to sketch pictures on paper and embed them here. Be sure make it clear how previously-described mechanics come through in the dynamics.*
-
+![Storyboard](./Assets/Art/syntax_sprint_storyboard.png)
 # Assets Needed
 
 ## Aethestics
