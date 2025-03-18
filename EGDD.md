@@ -64,7 +64,8 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 
 ## Player Interaction Pattern
 
-*This game is for one-person but can be multiplayer too. The players use the arrow-keys/WASD to move the player*
+*This game is for one-person but can be multiplayer too. Both players play on the same system - one player uses WASD and the other uses the arrow-keys to move.
+Note: The single player mode is the primary mode of interaction in the game. We will only implement multi-player mode if we have enough time to*
 
 ## Player Modes
 
@@ -74,8 +75,8 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 # Gameplay Objectives
 
 - *Collect all correct tokens*:
-    - Description: *Players need to collect the right syntax token to advance to the next round*
-    - Alignment: *This teaches the player to identify the right syntax in a given programming language fast and within a time limit*
+    - Description: *Players need to collect the right syntax token to advance to the next round. There is only one correct syntax token per level and multiple incorrect syntax tokens. The incorrect syntax tokens are either in another programming language or with a slightly different variation in language*
+    - Alignment: *This teaches the player to identify the right syntax in a given programming language fast and within a time limit. These tokens are analogous to the 'pills' in PacMan. Unlike PacMan there are no 'powerups' to help the player.*
 - *Complete all rounds*:
     - Description: *Players need to complete all rounds to complete the game *
     - Alignment: *This teaches the players to distinguish between syntax in different programming languages*
@@ -94,7 +95,6 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 - *If the player collects the correct token, they proceed to the next round*
 - *If the player completes all rounds, they will advance to the next world*
 - *If the player collect a wrong token, more enemies are spawned*
-- *Players need to complete minigames in-between the levels to move to the next world*
 
 # Objects/Entities
 
@@ -106,7 +106,7 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 ## Core Gameplay Mechanics (Detailed)
 
 - *Moving the character*: *The character moves according to the arrow keys. The character does not move continuously and can move as many blocks and spaces as the player wants*
-- *Completing within the time-limit: *The player should complete each round within the time limit. The time limit is 2 minutes for each round.*
+- *Completing within the time-limit: *The player should complete each round within the time limit. The time limit starts off as 5 minutes for each round and decreases with each passing round - making the game more challenging and exciting to play*
 - *Correctly advancing through the rounds*: *The player must navigate through the maze to collect the correct token within the time-limit to advance to the next round. Each round will have one correct and multiple incorrect tokens.*
 - *Collecting the incorrect token:  * If the player collects an incorrect token, the number of enemies chasing the player increases*
 - *Advancing through the worlds*: *If the player completes all the rounds (5-6 rounds per world), they will advance to the next world which will be set in another programming language*
