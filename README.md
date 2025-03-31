@@ -17,7 +17,7 @@ Avoid the enemies and move through the worlds by learning common syntax!
 - (Coming Soon)
 
 # Education Game Design Document
-[EGGG.md](syntax-sprint/EGGG.md)
+- [EGGG.md](syntax-sprint/EGGG.md)
 
 # Credits and Acknowledgements
 - (Coming Soon)
