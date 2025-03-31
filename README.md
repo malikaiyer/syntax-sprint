@@ -5,7 +5,7 @@ Avoid the enemies and move through the worlds by learning common syntax!
 # Developers
 - Malika Iyer (malika@udel.edu)
 - Daniel Fazzari
-- Name (email)
+- Abdullah
 
 # Basic Instructions
 - (Coming Soon)
