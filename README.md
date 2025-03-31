@@ -17,7 +17,7 @@ Name (email)
 (Coming Soon)
 
 # Education Game Design Document
-Link to the document in your repo
+[EGGG.md](syntax-sprint/tree/master/EGGG.md)
 
 # Credits and Acknowledgements
 (Coming Soon)
