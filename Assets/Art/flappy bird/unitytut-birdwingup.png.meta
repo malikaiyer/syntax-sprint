@@ -212,7 +212,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      unitytut-birdwingup_0: -7297196468488472043
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
