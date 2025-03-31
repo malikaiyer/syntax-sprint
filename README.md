@@ -2,22 +2,22 @@
 
 Avoid the enemies and move through the worlds by learning common syntax!
 
-Developers
+# Developers
 Malika Iyer (malika@udel.edu)
 Name (email)
 Name (email)
 
-Basic Instructions
+# Basic Instructions
 (Coming Soon)
 
-Screenshot
+# Screenshot
 (Coming Soon)
 
-Gameplay Video
+# Gameplay Video
 (Coming Soon)
 
-Education Game Design Document
+# Education Game Design Document
 Link to the document in your repo
 
-Credits and Acknowledgements
+# Credits and Acknowledgements
 (Coming Soon)
