@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5871ed7bfeb7c45d6836049bf838a74d
+guid: f83da633c3aa0f84bac62e7a216df9e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6869035897111318556
-    second: purple_bug1_0
+      213: 924359657535889974
+    second: yellow_bug1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: purple_bug1_0
+      name: yellow_bug1_0
       rect:
         serializedVersion: 2
-        x: 77
-        y: 124
-        width: 346
-        height: 315
+        x: 79
+        y: 127
+        width: 354
+        height: 322
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c101ab431c7b35f50800000000000000
-      internalID: 6869035897111318556
+      spriteID: 632e028063cf3dc00800000000000000
+      internalID: 924359657535889974
       vertices: []
       indices: 
       edges: []

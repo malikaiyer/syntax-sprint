@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 997d9b81cbeb44224ac924675ece9831
+guid: fde5841b2c03c5748aa6887b2c317706
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2890159431727280948
-    second: purple_bug2_0
+      213: -205270267638800340
+    second: heart_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: purple_bug2_0
+      name: heart_0
       rect:
         serializedVersion: 2
-        x: 79
-        y: 127
-        width: 354
-        height: 322
+        x: 95
+        y: 175
+        width: 322
+        height: 290
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ccc86af3f4714e7d0800000000000000
-      internalID: -2890159431727280948
+      spriteID: c20a07677cbb62df0800000000000000
+      internalID: -205270267638800340
       vertices: []
       indices: 
       edges: []

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7c5080d5fd9ea46ba8fbc176cecc9653
+guid: a3576748abe3ae24f8356a2f03cfbfbb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5208279514159792228
-    second: red_bug2_0
+      213: -7465511933037701098
+    second: robot_correct_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: red_bug2_0
+      name: robot_correct_0
       rect:
         serializedVersion: 2
-        x: 79
-        y: 127
-        width: 354
-        height: 322
+        x: 143
+        y: 63
+        width: 242
+        height: 386
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9fbf83606978b7b0800000000000000
-      internalID: -5208279514159792228
+      spriteID: 61819dc637c256890800000000000000
+      internalID: -7465511933037701098
       vertices: []
       indices: 
       edges: []
