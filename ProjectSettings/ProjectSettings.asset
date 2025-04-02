@@ -899,7 +899,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -921,11 +927,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 61d2705b-ffc4-4803-b26e-b051e826b95e
+  cloudProjectId: e11b2bb0-896e-49ab-a7c1-fb53f8700c85
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: CISC374-BirdTutorial 2025-02-14_10-54-15
-  organizationId: oritokarn
+  projectName: syntax sprint
+  organizationId: malikaiyer
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
