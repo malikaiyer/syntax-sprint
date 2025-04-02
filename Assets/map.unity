@@ -19248,15 +19248,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1255896473}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78ce2c5f57217b0438015dc466270002, type: 3}
+  m_Script: {fileID: 11500000, guid: 466c03f7440d35648b3e2769d37e1137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
   robotLeft: {fileID: 1349058306535156889, guid: cb6b871426734844bbb3f2a9ca6db6a2, type: 3}
   robotRight: {fileID: 7098405509823949727, guid: 126810ee5bffce246ac92a2d77a507a3, type: 3}
   robotIdle: {fileID: -657961559312475950, guid: 6ac16d92eb8032c4880ec84104f6dc65, type: 3}
-  spriteRenderer: {fileID: 0}
-  moveDirection: {x: 0, y: 0}
 --- !u!61 &1255896478
 BoxCollider2D:
   m_ObjectHideFlags: 0
