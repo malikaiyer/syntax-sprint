@@ -19259,8 +19259,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.35, z: -1}
-  m_LocalScale: {x: 0.62701946, y: 0.46370667, z: 1.2}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.53, y: 0.46370667, z: 1.2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19336,6 +19336,13 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 512
+  rigidbody: {fileID: 0}
+  direction: {x: 0, y: 0}
+  nextDirection: {x: 0, y: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
+  robotLeft: {fileID: 1349058306535156889, guid: cb6b871426734844bbb3f2a9ca6db6a2, type: 3}
+  robotRight: {fileID: 7098405509823949727, guid: 126810ee5bffce246ac92a2d77a507a3, type: 3}
+  robotIdle: {fileID: -657961559312475950, guid: 6ac16d92eb8032c4880ec84104f6dc65, type: 3}
 --- !u!58 &1255896478
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19430,6 +19437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugs: []
   robot: {fileID: 1255896477}
+  score: 0
+  lives: 0
 --- !u!4 &1963262052
 Transform:
   m_ObjectHideFlags: 0
@@ -19577,6 +19586,3 @@ SceneRoots:
   - {fileID: 1255896474}
   - {fileID: 1997152606}
   - {fileID: 113394069}
-  - {fileID: 1277626056}
-  - {fileID: 1531976221}
-  - {fileID: 1003298987}

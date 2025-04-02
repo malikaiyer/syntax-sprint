@@ -13,10 +13,18 @@ public class RobotController : MonoBehaviour
 
     public Vector2 nextDirection;
     public Vector3 startingPosition; 
+    public Sprite robotLeft;
+    public Sprite robotRight;
+    public Sprite robotIdle;
+
+    private SpriteRenderer spriteRenderer;
+
     private void Awake()
     {
         this.rigidbody = GetComponent<Rigidbody2D>();
         this.startingPosition = this.transform.position;
+        this.spriteRenderer = GetComponent<SpriteRenderer>(); // Get SpriteRenderer component
+
     }
 
     private void Start()
@@ -31,6 +39,7 @@ public class RobotController : MonoBehaviour
         this.transform.position = this.startingPosition;
         this.rigidbody.bodyType = RigidbodyType2D.Dynamic;
         this.enabled = true; 
+        UpdateSprite(); // Update sprite to initial direction
     }
 
     private void Update()
@@ -68,6 +77,7 @@ public class RobotController : MonoBehaviour
         {
             this.direction = direction;
             this.nextDirection = Vector2.zero;
+            UpdateSprite(); // Update sprite to new direction
         }
         else{
             this.nextDirection = direction;
@@ -79,6 +89,22 @@ public class RobotController : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one * 0.75f, 0.0f, direction, 1.5f, this.obstacleLayer);
         return hit.collider != null; 
     } 
+
+     private void UpdateSprite()
+    {
+        if (direction == Vector2.left)
+        {
+            spriteRenderer.sprite = robotLeft;
+        }
+        else if (direction == Vector2.right)
+        {
+            spriteRenderer.sprite = robotRight;
+        }
+        else
+        {
+            spriteRenderer.sprite = robotIdle;
+        }
+    }
 
 
 }
