@@ -19255,6 +19255,8 @@ MonoBehaviour:
   robotLeft: {fileID: 1349058306535156889, guid: cb6b871426734844bbb3f2a9ca6db6a2, type: 3}
   robotRight: {fileID: 7098405509823949727, guid: 126810ee5bffce246ac92a2d77a507a3, type: 3}
   robotIdle: {fileID: -657961559312475950, guid: 6ac16d92eb8032c4880ec84104f6dc65, type: 3}
+  spriteRenderer: {fileID: 0}
+  moveDirection: {x: 0, y: 0}
 --- !u!61 &1255896478
 BoxCollider2D:
   m_ObjectHideFlags: 0
