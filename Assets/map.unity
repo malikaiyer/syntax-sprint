@@ -19577,6 +19577,85 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &2119690686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119690688}
+  - component: {fileID: 2119690687}
+  - component: {fileID: 2119690689}
+  m_Layer: 0
+  m_Name: Bug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2119690687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119690686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74883542185e59c469391871202a1833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  bugSprites:
+  - {fileID: -3842454063987845826, guid: 50ab268e2af1a20419f462800c1cbc43, type: 3}
+  - {fileID: 6808840841513533657, guid: edf759a83f516d843a84e0d0ab66e40d, type: 3}
+  - {fileID: 6869035897111318556, guid: 41400a6a7a399034db0c21a1e67badf7, type: 3}
+  - {fileID: 8342306378379827392, guid: 4d514d5f416cd604e89a2c280f528d4a, type: 3}
+  - {fileID: 924359657535889974, guid: f83da633c3aa0f84bac62e7a216df9e5, type: 3}
+--- !u!4 &2119690688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119690686}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5173721, y: -1.0934937, z: -0.093528226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2119690689
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119690686}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -19586,3 +19665,4 @@ SceneRoots:
   - {fileID: 1255896474}
   - {fileID: 1997152606}
   - {fileID: 113394069}
+  - {fileID: 2119690688}
