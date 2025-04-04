@@ -1,45 +1,110 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class RobotController : MonoBehaviour
 {
-    public float speed = 5f; // Speed of movement
-    public Sprite robotLeft; // Sprite for moving left
-    public Sprite robotRight; // Sprite for moving right
+    public float speed = 5.0f;
+    public Vector2 initialDirection;
+    public LayerMask obstacleLayer;
+
+    public new Rigidbody2D rigidbody; 
+
+    public Vector2 direction; 
+
+    public Vector2 nextDirection;
+    public Vector3 startingPosition; 
+    public Sprite robotLeft;
+    public Sprite robotRight;
     public Sprite robotIdle;
 
     private SpriteRenderer spriteRenderer;
-    private Vector2 moveDirection;
 
-    void Start()
+    private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        this.rigidbody = GetComponent<Rigidbody2D>();
+        this.startingPosition = this.transform.position;
+        this.spriteRenderer = GetComponent<SpriteRenderer>(); // Get SpriteRenderer component
+
     }
 
-    void Update()
+    private void Start()
     {
-        MoveRobot();
+        ResetState();
     }
 
-    void MoveRobot()
+    public void ResetState()
     {
-        float moveX = Input.GetAxisRaw("Horizontal"); // -1 (left), 1 (right), 0 (idle)
-        float moveY = Input.GetAxisRaw("Vertical");   // -1 (down), 1 (up), 0 (idle)
+        this.direction = this.initialDirection;
+        this.nextDirection = Vector2.zero;
+        this.transform.position = this.startingPosition;
+        this.rigidbody.bodyType = RigidbodyType2D.Dynamic;
+        this.enabled = true; 
+        UpdateSprite(); // Update sprite to initial direction
+    }
 
-        moveDirection = new Vector2(moveX, moveY).normalized; // Normalize to prevent faster diagonal movement
-
-        if (moveX < 0)
-        {
-            spriteRenderer.sprite = robotLeft; // Change sprite when moving left
+    private void Update()
+    {
+        if(nextDirection != Vector2.zero){
+            SetDirection(this.nextDirection);
         }
-        else if (moveX > 0)
+        if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            spriteRenderer.sprite = robotRight; // Change sprite when moving right
+            SetDirection(Vector2.up);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        {
+            SetDirection(Vector2.down);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        {
+            SetDirection(Vector2.left);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        {
+            SetDirection(Vector2.right);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 position = this.rigidbody.position;
+        Vector2 translation = this.direction * this.speed * Time.fixedDeltaTime;
+        this.rigidbody.MovePosition(position + translation);
+    }
+    public void SetDirection(Vector2 direction, bool forced = false)
+    {
+        if (forced || !Occupied(direction))
+        {
+            this.direction = direction;
+            this.nextDirection = Vector2.zero;
+            UpdateSprite(); // Update sprite to new direction
+        }
+        else{
+            this.nextDirection = direction;
+        }
+    }
+
+   public bool Occupied(Vector2 direction)
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one * 0.75f, 0.0f, direction, 1.5f, this.obstacleLayer);
+        return hit.collider != null; 
+    } 
+
+     private void UpdateSprite()
+    {
+        if (direction == Vector2.left)
+        {
+            spriteRenderer.sprite = robotLeft;
+        }
+        else if (direction == Vector2.right)
+        {
+            spriteRenderer.sprite = robotRight;
         }
         else
         {
-            spriteRenderer.sprite = robotIdle; // Reset sprite when idle
+            spriteRenderer.sprite = robotIdle;
         }
-
-        transform.position += (Vector3)moveDirection * speed * Time.deltaTime; // Move the robot
     }
+
+
 }
