@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     private void ResetState(){
                 for(int i = 0; i < this.bugs.Length; i++)
         {
-            this.bugs[i].gameObject.SetActive(true);
+            this.bugs[i].GetComponent<Bug>().ResetState();
             }
              this.robot.gameObject.SetActive(true);
     }
@@ -52,6 +52,17 @@ public class GameManager : MonoBehaviour
 
     private void SetLives(int lives){
         this.lives = lives;
+    }
+
+    public void RobotEaten(){
+        this.robot.gameObject.SetActive(false);
+        SetLives(this.lives - 1);
+        if (this.lives > 0){
+            Invoke(nameof(ResetState), 3.0f);
+        }
+        else{
+            GameOver();
+        }
     }
 
 }
