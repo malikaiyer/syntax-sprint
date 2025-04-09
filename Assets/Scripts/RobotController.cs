@@ -34,6 +34,7 @@ public class RobotController : MonoBehaviour
 
     public void ResetState()
     {
+        this.gameObject.SetActive(true);
         this.direction = this.initialDirection;
         this.nextDirection = Vector2.zero;
         this.transform.position = this.startingPosition;
