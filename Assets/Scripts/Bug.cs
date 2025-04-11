@@ -21,7 +21,7 @@ public class Bug : MonoBehaviour
     private void Start()
     {
         ResetState();
-}
+    }
 
     public void ResetState()
     {
@@ -42,6 +42,7 @@ public class Bug : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Robot"))
         {
             FindFirstObjectByType<GameManager>().RobotEaten();
+
         }
     }
 }
