@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public int score; 
     public int lives; 
     [SerializeField] private Text gameOverText;
-
+    [SerializeField] private Image[] heartImages; // UI hearts representing lives
 
     private void Start()
     {
@@ -57,6 +57,10 @@ public class GameManager : MonoBehaviour
 
     private void SetLives(int lives){
         this.lives = lives;
+
+        for (int i = 0; i < heartImages.Length; i++){
+            heartImages[i].enabled = i < lives;
+        }
     }
 
     public void RobotEaten(){
