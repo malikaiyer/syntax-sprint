@@ -51,17 +51,21 @@ public class Movement : MonoBehaviour
     {
        if (forced || !Occupied(direction)) // Check if the direction is occupied
         {
+            // Debug.Log("Setting direction to: " + direction); // Log the new direction
             this.direction = direction; // Set the direction to the new direction
             this.nextDirection = Vector2.zero; // Reset the next direction
         }
         else{
+            // Debug.Log("Direction blocked. setting next direction to" + direction); // Log the next direction
             this.nextDirection = direction; // Set the next direction to the new direction
         }
     }
 
     public bool Occupied(Vector2 direction)
     {
-        RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one*0.75f, 0.0f, direction, 1.5f, this.obstacleLayer); // Cast a ray to check for obstacles
+        RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one*0.4f, 0.0f, direction, 1.0f, this.obstacleLayer); // Cast a ray to check for obstacles
         return hit.collider != null; 
     }
+
+
 }
