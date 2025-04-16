@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8954050944a39e14088bcb479ae8ce43, type: 3}
   m_Name: QuestionsAndAnswers 2
   m_EditorClassIdentifier: Assembly-CSharp::QuestionsAndAnswers
-  questionText: "Complete the blank with the correct syntax to define a function
-    in Python: def myfunction(x) _\r"
+  questionText: "Complete the blank: for var in range(1)_\r"
   correctAnswer: ':'
   wrongAnswers:
   - '{'
