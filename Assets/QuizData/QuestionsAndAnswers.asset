@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8954050944a39e14088bcb479ae8ce43, type: 3}
   m_Name: QuestionsAndAnswers
   m_EditorClassIdentifier: Assembly-CSharp::QuestionsAndAnswers
   questionText: 'Fill in the blank to get the numbers 1 to 10 in Python: range(____)'
