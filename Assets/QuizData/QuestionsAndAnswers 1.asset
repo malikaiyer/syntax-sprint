@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8954050944a39e14088bcb479ae8ce43, type: 3}
   m_Name: QuestionsAndAnswers 1
   m_EditorClassIdentifier: Assembly-CSharp::QuestionsAndAnswers
-  questionText: How do you assign a variable in Python? Fill in the blank - x _ 9
+  questionText: 'Fill in the blank to assign the value 9 to a variable in Python:
+    x _ 9'
   correctAnswer: =
   wrongAnswers:
   - ==

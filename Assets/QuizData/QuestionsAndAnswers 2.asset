@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8954050944a39e14088bcb479ae8ce43, type: 3}
   m_Name: QuestionsAndAnswers 2
   m_EditorClassIdentifier: Assembly-CSharp::QuestionsAndAnswers
-  questionText: Complete the blank with the correct syntax - def myfunction(x)_
+  questionText: "Complete the blank with the correct syntax to define a function
+    in Python: def myfunction(x) _\r"
   correctAnswer: ':'
   wrongAnswers:
   - '{'

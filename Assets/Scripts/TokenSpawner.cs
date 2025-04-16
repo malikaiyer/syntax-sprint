@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 
 
 public class TokenSpawner : MonoBehaviour
@@ -14,6 +16,8 @@ public class TokenSpawner : MonoBehaviour
     private List<GameObject> activeTokens = new List<GameObject>();
     private int currentQuestionIndex = 0;
     public GameManager gameManager; // Reference to the GameManager
+    [SerializeField] private Text QuestionText;
+
 
     private void Awake()
     {
@@ -40,6 +44,7 @@ public class TokenSpawner : MonoBehaviour
     }
 
     var question = quizQuestions[currentQuestionIndex];
+    QuestionText.text = question.questionText; // Update the UI text with the current question
     Debug.Log("Current question: " + question.questionText);
     currentQuestionIndex++;
 
