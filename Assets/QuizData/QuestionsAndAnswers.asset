@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: QuestionsAndAnswers
   m_EditorClassIdentifier: Assembly-CSharp::QuestionsAndAnswers
-  questionText: How do you get numbers 1 through 10 in python? - range(____)
+  questionText: 'Fill in the blank to get the numbers 1 to 10 in Python: range(____)'
   correctAnswer: 1, 11
   wrongAnswers:
   - 10

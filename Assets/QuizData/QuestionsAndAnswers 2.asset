@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: QuestionsAndAnswers 2
   m_EditorClassIdentifier: Assembly-CSharp::QuestionsAndAnswers
-  questionText: Complete the blank with the correct syntax - def myfunction(x)_
+  questionText: Complete the blank with the correct syntax - for x in range(10)_
   correctAnswer: ':'
   wrongAnswers:
   - '{'
