@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     public RobotController robot;
     public TokenSpawner tokenSpawner;
 
-
     public int score; 
     public int lives; 
     [SerializeField] private Text gameOverText;
@@ -15,11 +14,19 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Image[] heartImages; // UI hearts representing lives
 
+    //for world screen
+    [SerializeField] private GameObject worldIntroPanel;
+    [SerializeField] private Text worldNameText;
+    [SerializeField] private Button goToWorldButton;
+    [SerializeField] private string[] worldNames = new string[] { "Python", "Java", "C++" };
+    private int currentWorldIndex = 0;
+
     private int currentRound = 0;
 
     private void Start()
     {
-        NewGame();
+        ShowWorldIntro();
+        // NewGame();
 
     }
 
@@ -57,6 +64,14 @@ public class GameManager : MonoBehaviour
         ResetState();
     }
 
+    public void NewWorld(){
+        Time.timeScale = 1f; // Resume time
+        worldIntroPanel.SetActive(false);
+        tokenSpawner.ResetQuestions();
+        tokenSpawner.ClearTokens();
+        NewRound();
+    }
+
     private void ResetState(){
         for(int i = 0; i < this.bugs.Length; i++)
         {
@@ -84,9 +99,27 @@ public class GameManager : MonoBehaviour
         SetScore(this.score + 1);
     if (currentRound >= 5)
         {
-            // World complete logic here (e.g., switch to next language, reset hearts, etc.)
             Debug.Log("World complete!");
-            // Possibly transition to another scene or reset question list
+            tokenSpawner.ClearTokens();
+            
+            //show world complete screen
+            //set to new map
+            //set hearts to full
+            //keep score same
+            //keep round score the same
+
+             currentWorldIndex++;
+            if (currentWorldIndex >= worldNames.Length)
+            {
+                Debug.Log("All worlds complete! Game over.");
+                GameOver();
+            }
+            else
+            {
+                currentRound = 0;            // Reset round for next world
+                SetLives(3);                 // Reset lives for new world
+                ShowWorldIntro();           // Show next world screen
+            }
         }
     else
         {
@@ -119,5 +152,16 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
+
+    private void ShowWorldIntro()
+    {
+        Time.timeScale = 0f;
+        string worldName = worldNames[currentWorldIndex];
+        worldNameText.text = $"Welcome to the {worldName} World!";
+        worldIntroPanel.SetActive(true);
+        goToWorldButton.onClick.RemoveAllListeners();
+        goToWorldButton.onClick.AddListener(NewWorld);
+    }
+
 
 }
