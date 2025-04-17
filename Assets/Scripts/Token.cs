@@ -9,8 +9,6 @@ public class Token : MonoBehaviour
     public List<QuestionsAndAnswers> quizQuestions;
     public GameManager gameManager;
 
-
-
     private TextMeshProUGUI textDisplay;
 
      private void Awake()
