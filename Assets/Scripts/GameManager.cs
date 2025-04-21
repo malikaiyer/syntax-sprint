@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
         roundCompleteScreen.enabled  = false;
 
         //spawn tokens
+        tokenSpawner.ClearTokens();
         tokenSpawner.SpawnTokens();
         ResetState();
     }
