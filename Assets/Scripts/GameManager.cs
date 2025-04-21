@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject worldIntroPanel;
     [SerializeField] private Text worldNameText;
     [SerializeField] private Button goToWorldButton;
-    [SerializeField] private string[] worldNames = new string[] { "Python", "Java", "C++" };
+    [SerializeField] private string[] worldNames = new string[] { "Python World", "Java Jungle", "C++ Circuit" };
     private int currentWorldIndex = 0;
 
     private int currentRound = 0;
@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         string worldName = worldNames[currentWorldIndex];
-        worldNameText.text = $"Welcome to the {worldName} World!";
+        worldNameText.text = $"Welcome to the {worldName}!";
         worldIntroPanel.SetActive(true);
         goToWorldButton.onClick.RemoveAllListeners();
         goToWorldButton.onClick.AddListener(NewWorld);
