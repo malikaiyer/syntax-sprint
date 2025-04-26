@@ -68,8 +68,6 @@ public class GameManager : MonoBehaviour
         SetScore(0);
         SetLives(3);
         tokenSpawner.ResetQuestions();
-        if (!backgroundMusic.isPlaying){
-        backgroundMusic.Play();}
         NewRound();
     }
 
@@ -82,8 +80,7 @@ public class GameManager : MonoBehaviour
         tokenSpawner.ClearTokens();
         tokenSpawner.SpawnTokens();
         ResetState();
-        if (!backgroundMusic.isPlaying)
-        backgroundMusic.Play();
+        
     }
 
     public void NewWorld(){
@@ -91,6 +88,8 @@ public class GameManager : MonoBehaviour
         worldIntroPanel.SetActive(false);
         tokenSpawner.ResetQuestions();
         tokenSpawner.ClearTokens();
+        if (!backgroundMusic.isPlaying){
+            backgroundMusic.Play();}
         NewRound();
     }
 
@@ -200,8 +199,8 @@ public class GameManager : MonoBehaviour
         goToWorldButton.onClick.RemoveAllListeners();
         goToWorldButton.onClick.AddListener(NewWorld);
 
-        if (backgroundMusic.isPlaying)
-        backgroundMusic.Stop();
+        if (backgroundMusic.isPlaying){
+        backgroundMusic.Stop();}
         worldStartSound.Play();
     }
 
