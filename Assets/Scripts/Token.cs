@@ -35,6 +35,7 @@ public class Token : MonoBehaviour
     {
         if (isCorrect)
         {
+            gameManager.PlayCorrectTokenSound(); // Play sound for correct token
             Debug.Log("Correct token collected!");
             gameManager.RoundComplete(); //trigger the next question
             

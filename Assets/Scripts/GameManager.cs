@@ -18,6 +18,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject worldIntroPanel;
     [SerializeField] private Text worldNameText;
     [SerializeField] private Button goToWorldButton;
+    [SerializeField] private AudioSource backgroundMusic;
+    [SerializeField] private AudioSource correctTokenSound;
+    // [SerializeField] private AudioSource wrongTokenSound;
+    [SerializeField] private AudioSource gameOverSound;
+
+    [SerializeField] private AudioSource worldStartSound;
+    [SerializeField] private AudioSource loseHeartSound;
+
+
     [SerializeField] private string[] worldNames = new string[] { "Python World", "Java Jungle", "C++ Circuit" };
     private int currentWorldIndex = 0;
 
@@ -47,10 +56,14 @@ public class GameManager : MonoBehaviour
 
     //ONLY CALL IF YOU WANT TO START THE GAME FROM SCRATCH - called when game is over 
     private void NewGame(){
+        if (gameOverSound.isPlaying){
+            gameOverSound.Stop();}
         currentRound = 0;
         SetScore(0);
         SetLives(3);
         tokenSpawner.ResetQuestions();
+        if (!backgroundMusic.isPlaying){
+        backgroundMusic.Play();}
         NewRound();
     }
 
@@ -63,6 +76,8 @@ public class GameManager : MonoBehaviour
         tokenSpawner.ClearTokens();
         tokenSpawner.SpawnTokens();
         ResetState();
+        if (!backgroundMusic.isPlaying)
+        backgroundMusic.Play();
     }
 
     public void NewWorld(){
@@ -92,6 +107,10 @@ public class GameManager : MonoBehaviour
 
         // Clear tokens
         tokenSpawner.ClearTokens();
+        if (backgroundMusic.isPlaying){
+            backgroundMusic.Stop();
+        }
+        gameOverSound.Play();
     }
 
     //this is called when a round is complete (the robot eats the correct token)
@@ -147,6 +166,7 @@ public class GameManager : MonoBehaviour
         this.robot.gameObject.SetActive(false);
         SetLives(this.lives - 1);
         if (this.lives > 0){
+            loseHeartSound.Play();
             Invoke(nameof(ResetState), 1.0f);
         }
         else{
@@ -162,7 +182,18 @@ public class GameManager : MonoBehaviour
         worldIntroPanel.SetActive(true);
         goToWorldButton.onClick.RemoveAllListeners();
         goToWorldButton.onClick.AddListener(NewWorld);
+
+        if (backgroundMusic.isPlaying)
+        backgroundMusic.Stop();
+        worldStartSound.Play();
     }
+
+
+    public void PlayCorrectTokenSound()
+    {
+        correctTokenSound.Play();
+    }
+
 
 
 }
