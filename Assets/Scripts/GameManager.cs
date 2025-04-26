@@ -4,6 +4,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 { 
     public GameObject[] bugs;
+    
+    //bug spawn for wrong token
+    [SerializeField] private GameObject[] inactiveBugs;  // Array to hold your two bugs
+    private int nextBugIndex = 0;  // Tracks which bug to activate next
     public RobotController robot;
     public TokenSpawner tokenSpawner;
 
@@ -31,6 +35,8 @@ public class GameManager : MonoBehaviour
     private int currentWorldIndex = 0;
 
     private int currentRound = 0;
+    
+
 
     private void Start()
     {
@@ -94,6 +100,12 @@ public class GameManager : MonoBehaviour
             this.bugs[i].GetComponent<Bug>().ResetState();
         }
             this.robot.ResetState();
+        
+        for (int i = 0; i < inactiveBugs.Length; i++)
+        {
+            this.inactiveBugs[i].SetActive(false);
+        }
+        nextBugIndex = 0;
             
     }
 
@@ -104,6 +116,11 @@ public class GameManager : MonoBehaviour
             this.bugs[i].gameObject.SetActive(false);
         }
              this.robot.gameObject.SetActive(false);
+        
+        for (int i = 0; i < inactiveBugs.Length; i++)
+        {
+            this.inactiveBugs[i].SetActive(false);
+        }
 
         // Clear tokens
         tokenSpawner.ClearTokens();
@@ -193,6 +210,30 @@ public class GameManager : MonoBehaviour
     {
         correctTokenSound.Play();
     }
+
+    public void ActivateNextBug()
+{
+    if (nextBugIndex < inactiveBugs.Length)
+    {
+        GameObject bugToActivate = inactiveBugs[nextBugIndex];
+        bugToActivate.SetActive(true);
+
+        // Reset the bug state to ensure correct behavior
+        Bug bugScript = bugToActivate.GetComponent<Bug>();
+        if (bugScript != null)
+        {
+            bugScript.ResetState();
+        }
+
+        nextBugIndex++;
+    }
+    else
+    {
+        Debug.Log("All bugs have already been activated.");
+    }
+}
+
+
 
 
 

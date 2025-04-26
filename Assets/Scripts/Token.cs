@@ -43,6 +43,8 @@ public class Token : MonoBehaviour
         else
         {
             Debug.Log("Wrong token collected!");
+            gameManager.ActivateNextBug();   // Activate a bug when wrong token is collected
+
             
         }
 
