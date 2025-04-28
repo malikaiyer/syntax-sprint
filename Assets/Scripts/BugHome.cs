@@ -40,7 +40,7 @@ public class BugHome : BugBehavior
 
         while (elapsed < duration)
         {
-            Vector3 newPosition = Vector3.Lerp(position, this.outside.position, elapsed / duration);
+            Vector3 newPosition = Vector3.Lerp(inside.position, this.outside.position, elapsed / duration);
             newPosition.z = position.z;
             this.bug.transform.position = newPosition;
             elapsed += Time.deltaTime;

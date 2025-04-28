@@ -194,7 +194,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         string worldName = worldNames[currentWorldIndex];
-        worldNameText.text = $"Welcome to the {worldName}!";
+        worldNameText.text = $"Welcome to {worldName}!";
         worldIntroPanel.SetActive(true);
         goToWorldButton.onClick.RemoveAllListeners();
         goToWorldButton.onClick.AddListener(NewWorld);
