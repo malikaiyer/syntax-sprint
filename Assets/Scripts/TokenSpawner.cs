@@ -46,7 +46,6 @@ public class TokenSpawner : MonoBehaviour
     var question = quizQuestions[currentQuestionIndex];
     QuestionText.text = question.questionText; // Update the UI text with the current question
     Debug.Log("Current question: " + question.questionText);
-    currentQuestionIndex++;
 
     // Create a list of token data with one correct and two wrong answers
     List<(string, bool)> tokens = new List<(string, bool)>
@@ -95,6 +94,10 @@ public class TokenSpawner : MonoBehaviour
             }
         }
         activeTokens.Clear();
+    }
+
+    public void NextQuestion(){
+        currentQuestionIndex++;
     }
 
     public void ResetQuestions()

@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     public TokenSpawner tokenSpawner;
 
     public int score; 
-    public int lives; 
+    public int lives = 3; 
+
     [SerializeField] private Text gameOverText;
     [SerializeField] private Text roundCompleteScreen;
 
@@ -68,7 +69,6 @@ public class GameManager : MonoBehaviour
         SetScore(0);
         SetLives(3);
         tokenSpawner.ResetQuestions();
-        NewRound();
     }
 
     //starts a new round
@@ -86,7 +86,6 @@ public class GameManager : MonoBehaviour
     public void NewWorld(){
         Time.timeScale = 1f; // Resume time
         worldIntroPanel.SetActive(false);
-        tokenSpawner.ResetQuestions();
         tokenSpawner.ClearTokens();
         if (!backgroundMusic.isPlaying){
             backgroundMusic.Play();}
@@ -129,10 +128,39 @@ public class GameManager : MonoBehaviour
         gameOverSound.Play();
     }
 
+private void GameWon()
+{
+    gameOverText.enabled = true;
+    gameOverText.text = "Congratulations! All worlds complete!";
+
+    for (int i = 0; i < this.bugs.Length; i++)
+    {
+        this.bugs[i].gameObject.SetActive(false);
+    }
+    this.robot.gameObject.SetActive(false);
+
+    for (int i = 0; i < inactiveBugs.Length; i++)
+    {
+        this.inactiveBugs[i].SetActive(false);
+    }
+
+    tokenSpawner.ClearTokens();
+
+    if (backgroundMusic.isPlaying)
+    {
+        backgroundMusic.Stop();
+    }
+    
+    // Optionally: you could play a different happy sound here if you have one
+    // happyWinSound.Play();
+}
+
+
     //this is called when a round is complete (the robot eats the correct token)
     public void RoundComplete(){
         currentRound++;
         SetScore(this.score + 1);
+        tokenSpawner.NextQuestion(); // Move to the next question in the quiz
     if (currentRound >= 5)
         {
             Debug.Log("World complete!");
@@ -148,7 +176,7 @@ public class GameManager : MonoBehaviour
             if (currentWorldIndex >= worldNames.Length)
             {
                 Debug.Log("All worlds complete! Game over.");
-                GameOver();
+                GameWon();
             }
             else
             {
