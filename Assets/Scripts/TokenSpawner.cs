@@ -59,11 +59,13 @@ public class TokenSpawner : MonoBehaviour
     tokens = tokens.OrderBy(x => Random.value).ToList();
 
     // Spawn tokens at the shuffled spawn points
-    for (int i = 0; i < 3; i++)
-    {
-        SpawnToken(spawnPoints[i].position, tokens[i].Item1, tokens[i].Item2);
-    }
-    }
+    List<Transform> randomSpawnPoints = spawnPoints.OrderBy(x => Random.value).Take(3).ToList();
+
+// Spawn tokens at those 3 random spawn points
+for (int i = 0; i < 3; i++)
+{
+    SpawnToken(randomSpawnPoints[i].position, tokens[i].Item1, tokens[i].Item2);
+}}
 
     void SpawnToken(Vector3 pos, string code, bool isCorrect)
     {
