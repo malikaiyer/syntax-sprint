@@ -65,16 +65,22 @@ public class GameManager : MonoBehaviour
     private void NewGame(){
         if (gameOverSound.isPlaying){
             gameOverSound.Stop();}
+
+        tokenSpawner.ResetQuestions();
         currentRound = 0;
         SetScore(0);
         SetLives(3);
-        tokenSpawner.ResetQuestions();
+
+        NewRound();
     }
 
     //starts a new round
     private void NewRound(){
         gameOverText.enabled = false;
         roundCompleteScreen.enabled  = false;
+
+        if (!backgroundMusic.isPlaying){
+            backgroundMusic.Play();}
 
         //spawn tokens
         tokenSpawner.ClearTokens();
