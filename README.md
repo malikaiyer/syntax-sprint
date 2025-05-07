@@ -8,7 +8,10 @@ Navigate through challenging worlds and avoid enemies as you learn the foundatio
 - Abdullah (amaruf@udel.edu)
 
 # Basic Instructions
-- (Coming Soon)
+- Use the arrow keys or WASD to control the bug
+- Run through the worlds, each set in a different language, to complete the game
+- Each world has 5 rounds with a question to answer. Correct the right token to progress through the level.
+- Avoid the bugs to avoid losing hearts. Losing all hearts will lead to Game Over.
 
 # Screenshot
 - (Coming Soon)
