@@ -13,13 +13,11 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 
 ## Core Gameplay Mechanics (Brief)
 
-- *Move the player using arrow-keys*
-- *Avoid getting killed by enemies*
+- *Move the player using arrow-keys or WASD*
+- *Avoid getting killed by bugs*
 - *Player needs to collect the correct token to progress to the next level*
-- *Collecting incorrect tokens may lead to spawning more enemies*
+- *Collecting incorrect tokens leads to spawning more enemies*
 - *There are five rounds in a world with new tokens spawning when a player completes a round. Each world focuses on a different programming language*
-- *Minigames between rounds will have the player answering a programming question or coding to proceed*
-- *There is a time limit within which the player needs to collect all the correct tokens*
 - *The player starts off with 3 lives. Each time the player hits an enemy, they lose a life.*
 - *The player must successfully complete all rounds in all worlds to win the game*
 
@@ -47,12 +45,11 @@ Syntax sprint transforms the struggle of learning new syntax into an exciting ar
 
 - *Prior to the game, players need to be familiar with some syntax in Python*
 - *Prior to the game, players need to be familiar with some syntax in Java*
-- *Prior to the game, players need to be familiar with some syntax in JavaScript*
+- *Prior to the game, players need to be familiar with some syntax in C++*
 
 ## Assessment Measures
 
-- * Being able to beat the game  *
-- * Being able to beat the game in a shortened time period (creating a new high score)*
+- * Being able to beat the game *
 
 # What sets this project apart?
 
@@ -76,12 +73,12 @@ Note: The single player mode is the primary mode of interaction in the game. We 
 
 - *Collect all correct tokens*:
     - Description: *Players need to collect the right syntax token to advance to the next round. There is only one correct syntax token per level and multiple incorrect syntax tokens. The incorrect syntax tokens are either in another programming language or with a slightly different variation in language*
-    - Alignment: *This teaches the player to identify the right syntax in a given programming language fast and within a time limit. These tokens are analogous to the 'pills' in PacMan. Unlike PacMan there are no 'powerups' to help the player.*
+    - Alignment: *This teaches the player to identify the right syntax in a given programming language fast. These tokens are analogous to the 'pills' in PacMan. Unlike PacMan there are no 'powerups' to help the player.*
 - *Complete all rounds*:
     - Description: *Players need to complete all rounds to complete the game *
     - Alignment: *This teaches the players to distinguish between syntax in different programming languages*
 - *Avoid the Enemies*:
-    - Description: *Players need to avoid the enemies and keep moving to complete the round. They lose a heart every time they touch a villain and need to retain at least one heart to keep playing*
+    - Description: *Players need to avoid the enemies and keep moving to complete the round. They lose a heart every time they interact with a bug and need to retain at least one heart to keep playing*
     - Alignment: *This keeps the player moving in the game and keeps them interacting with the game.*
 
 # Procedures/Actions
@@ -105,13 +102,11 @@ Note: The single player mode is the primary mode of interaction in the game. We 
 
 ## Core Gameplay Mechanics (Detailed)
 
-- *Moving the character*: *The character moves according to the arrow keys. The character does not move continuously and can move as many blocks and spaces as the player wants*
-- *Completing within the time-limit: *The player should complete each round within the time limit. The time limit starts off as 5 minutes for each round and decreases with each passing round - making the game more challenging and exciting to play*
-- *Correctly advancing through the rounds*: *The player must navigate through the maze to collect the correct token within the time-limit to advance to the next round. Each round will have one correct and multiple incorrect tokens.*
-- *Collecting the incorrect token:  * If the player collects an incorrect token, the number of enemies chasing the player increases*
+- *Moving the character*: *The character moves according to the arrow keys. The character moves continuously along a row until the player interacts with it *
+- *Correctly advancing through the rounds*: *The player must navigate through the maze to collect the correct token without being eaten by bugs to advance to the next round. Each round will have one correct and multiple incorrect tokens.*
+- *Collecting the incorrect token: * If the player collects an incorrect token, the number of enemies chasing the player increases*
 - *Advancing through the worlds*: *If the player completes all the rounds (5-6 rounds per world), they will advance to the next world which will be set in another programming language*
 - *Losing the game*: *If the player interacts with an enemy, they lose a heart. If they player loses all hearts, they lose the game.*
-
 
     
 ## Feedback
