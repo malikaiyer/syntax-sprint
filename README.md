@@ -20,4 +20,5 @@ Avoid the enemies and move through the worlds by learning common syntax!
 - [EGDD.md](EGDD.md)
 
 # Credits and Acknowledgements
-- (Coming Soon)
+- Background Music - moodmode (https://pixabay.com/music/video-games-8-bit-music-on-medium-245247/)
+- Round Complete Sound Effect - Universfield (https://pixabay.com/sound-effects/game-bonus-2-294436/)
