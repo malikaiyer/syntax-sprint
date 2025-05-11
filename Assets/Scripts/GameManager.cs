@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button goToWorldButton;
     [SerializeField] private AudioSource backgroundMusic;
     [SerializeField] private AudioSource correctTokenSound;
-    // [SerializeField] private AudioSource wrongTokenSound;
+    [SerializeField] private AudioSource wrongTokenSound;
     [SerializeField] private AudioSource gameOverSound;
 
     [SerializeField] private AudioSource worldStartSound;
@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
             gameOverSound.Stop();}
 
         tokenSpawner.ResetQuestions();
+        currentWorldIndex = 0;
         currentRound = 0;
         SetScore(0);
         SetLives(3);
@@ -242,6 +243,11 @@ private void GameWon()
     public void PlayCorrectTokenSound()
     {
         correctTokenSound.Play();
+    }
+
+    public void PlayWrongTokenSound()
+    {
+        wrongTokenSound.Play();
     }
 
     public void ActivateNextBug()

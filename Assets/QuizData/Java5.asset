@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8954050944a39e14088bcb479ae8ce43, type: 3}
   m_Name: Java5
   m_EditorClassIdentifier: 
-  questionText: "in the blank to make a variable that cannot be changed: ____ int
-    x = 5;\r"
+  questionText: "Fill in the blank to make a variable that cannot be changed: ____
+    int x = 5;\r"
   correctAnswer: final
   wrongAnswers:
   - const

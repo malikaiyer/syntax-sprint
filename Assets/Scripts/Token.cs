@@ -42,6 +42,7 @@ public class Token : MonoBehaviour
         }
         else
         {
+            gameManager.PlayWrongTokenSound(); // Play sound for wrong token
             Debug.Log("Wrong token collected!");
             gameManager.ActivateNextBug();   // Activate a bug when wrong token is collected
 
