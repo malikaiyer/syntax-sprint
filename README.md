@@ -14,7 +14,9 @@ Navigate through challenging worlds and avoid enemies as you learn the foundatio
 - Avoid the bugs to avoid losing hearts. Losing all hearts will lead to Game Over.
 
 # Screenshot
-- (Coming Soon)
+![alt text](syntax-sprint-ss1.png) 
+![alt text](syntax-sprint-ss2.png)
+![alt text](syntax-sprint-ss3.png)
 
 # Gameplay Video
 - (Coming Soon)
