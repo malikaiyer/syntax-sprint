@@ -16,7 +16,6 @@ Navigate through challenging worlds and avoid enemies as you learn the foundatio
 # Screenshot
 ![alt text](syntax-sprint-ss1.png) 
 ![alt text](syntax-sprint-ss2.png)
-![alt text](syntax-sprint-3.png)
 
 # Gameplay Video
 - (Coming Soon)
