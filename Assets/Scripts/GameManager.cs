@@ -1,25 +1,24 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
-{ 
+{
     public GameObject[] bugs;
-    
-    //bug spawn for wrong token
-    [SerializeField] private GameObject[] inactiveBugs;  // Array to hold your two bugs
-    private int nextBugIndex = 0;  // Tracks which bug to activate next
+    [SerializeField] private GameObject[] inactiveBugs;
+    private int nextBugIndex = 0;
+
     public RobotController robot;
     public TokenSpawner tokenSpawner;
 
-    public int score; 
-    public int lives = 3; 
+    public int score;
+    public int lives = 3;
 
     [SerializeField] private Text gameOverText;
     [SerializeField] private Text roundCompleteScreen;
+    [SerializeField] private Image[] heartImages;
 
-    [SerializeField] private Image[] heartImages; // UI hearts representing lives
-
-    //for world screen
     [SerializeField] private GameObject worldIntroPanel;
     [SerializeField] private Text worldNameText;
     [SerializeField] private Button goToWorldButton;
@@ -27,31 +26,27 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource correctTokenSound;
     [SerializeField] private AudioSource wrongTokenSound;
     [SerializeField] private AudioSource gameOverSound;
-
     [SerializeField] private AudioSource worldStartSound;
     [SerializeField] private AudioSource loseHeartSound;
 
+    [SerializeField] private TextMeshProUGUI readingCountdownText;
 
     [SerializeField] private string[] worldNames = new string[] { "Python World", "Java Jungle", "C++ Circuit" };
     private int currentWorldIndex = 0;
-
     private int currentRound = 0;
-    
 
+    private float readingTime = 5f;
 
     private void Start()
     {
         ShowWorldIntro();
-        // NewGame();
-
     }
 
     private void Update()
     {
-        if(this.lives <= 0 && Input.anyKeyDown)
+        if (this.lives <= 0 && Input.anyKeyDown)
         {
             NewGame();
-        
         }
 
         if (roundCompleteScreen.enabled && Input.anyKeyDown)
@@ -61,166 +56,167 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //ONLY CALL IF YOU WANT TO START THE GAME FROM SCRATCH - called when game is over 
-    private void NewGame(){
-        if (gameOverSound.isPlaying){
-            gameOverSound.Stop();}
+    private void NewGame()
+    {
+        if (gameOverSound.isPlaying)
+            gameOverSound.Stop();
 
         tokenSpawner.ResetQuestions();
         currentWorldIndex = 0;
         currentRound = 0;
         SetScore(0);
         SetLives(3);
-
         NewRound();
     }
 
-    //starts a new round
-    private void NewRound(){
+    private void NewRound()
+    {
         gameOverText.enabled = false;
-        roundCompleteScreen.enabled  = false;
-
-        if (!backgroundMusic.isPlaying){
-            backgroundMusic.Play();}
-
-        //spawn tokens
+        roundCompleteScreen.enabled = false;
         tokenSpawner.ClearTokens();
-        tokenSpawner.SpawnTokens();
         ResetState();
-        
+        StartCoroutine(StartReadingCountdown());
     }
 
-    public void NewWorld(){
-        Time.timeScale = 1f; // Resume time
+    private IEnumerator StartReadingCountdown()
+    {
+        Time.timeScale = 0f;
+        float timeLeft = readingTime;
+        readingCountdownText.gameObject.SetActive(true);
+
+        tokenSpawner.SpawnTokens(); // show question and spawn tokens early
+
+        var pulse = readingCountdownText.GetComponent<PulseText>();
+
+        while (timeLeft > 0)
+        {
+            readingCountdownText.text = Mathf.Ceil(timeLeft).ToString();
+            if (pulse != null) pulse.PlayPulse();
+            yield return new WaitForSecondsRealtime(1f);
+            timeLeft -= 1f;
+        }
+
+        readingCountdownText.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void NewWorld()
+    {
+        Time.timeScale = 1f;
         worldIntroPanel.SetActive(false);
         tokenSpawner.ClearTokens();
-        if (!backgroundMusic.isPlaying){
-            backgroundMusic.Play();}
+
+        if (!backgroundMusic.isPlaying)
+            backgroundMusic.Play();
+
         NewRound();
     }
 
-    private void ResetState(){
-        for(int i = 0; i < this.bugs.Length; i++)
-        {
-            this.bugs[i].GetComponent<Bug>().ResetState();
-        }
-            this.robot.ResetState();
-        
-        for (int i = 0; i < inactiveBugs.Length; i++)
-        {
-            this.inactiveBugs[i].SetActive(false);
-        }
+    private void ResetState()
+    {
+        foreach (var bug in bugs)
+            bug.GetComponent<Bug>().ResetState();
+
+        robot.ResetState();
+
+        foreach (var bug in inactiveBugs)
+            bug.SetActive(false);
+
         nextBugIndex = 0;
-            
     }
 
-    private void GameOver(){
+    private void GameOver()
+    {
         gameOverText.enabled = true;
-        for(int i = 0; i < this.bugs.Length; i++)
-        {
-            this.bugs[i].gameObject.SetActive(false);
-        }
-             this.robot.gameObject.SetActive(false);
-        
-        for (int i = 0; i < inactiveBugs.Length; i++)
-        {
-            this.inactiveBugs[i].SetActive(false);
-        }
+        foreach (var bug in bugs)
+            bug.SetActive(false);
 
-        // Clear tokens
+        robot.gameObject.SetActive(false);
+
+        foreach (var bug in inactiveBugs)
+            bug.SetActive(false);
+
         tokenSpawner.ClearTokens();
-        if (backgroundMusic.isPlaying){
+
+        if (backgroundMusic.isPlaying)
             backgroundMusic.Stop();
-        }
+
         gameOverSound.Play();
     }
 
-private void GameWon()
-{
-    gameOverText.enabled = true;
-    gameOverText.text = "Congratulations! All worlds complete!";
-
-    for (int i = 0; i < this.bugs.Length; i++)
+    private void GameWon()
     {
-        this.bugs[i].gameObject.SetActive(false);
-    }
-    this.robot.gameObject.SetActive(false);
+        gameOverText.enabled = true;
+        gameOverText.text = "Congratulations! All worlds complete!";
 
-    for (int i = 0; i < inactiveBugs.Length; i++)
+        foreach (var bug in bugs)
+            bug.SetActive(false);
+
+        robot.gameObject.SetActive(false);
+
+        foreach (var bug in inactiveBugs)
+            bug.SetActive(false);
+
+        tokenSpawner.ClearTokens();
+
+        if (backgroundMusic.isPlaying)
+            backgroundMusic.Stop();
+    }
+
+    public void RoundComplete()
     {
-        this.inactiveBugs[i].SetActive(false);
-    }
-
-    tokenSpawner.ClearTokens();
-
-    if (backgroundMusic.isPlaying)
-    {
-        backgroundMusic.Stop();
-    }
-    
-    // Optionally: you could play a different happy sound here if you have one
-    // happyWinSound.Play();
-}
-
-
-    //this is called when a round is complete (the robot eats the correct token)
-    public void RoundComplete(){
         currentRound++;
-        SetScore(this.score + 1);
-        tokenSpawner.NextQuestion(); // Move to the next question in the quiz
-    if (currentRound >= 5)
-        {
-            Debug.Log("World complete!");
-            tokenSpawner.ClearTokens();
-            
-            //show world complete screen
-            //set to new map
-            //set hearts to full
-            //keep score same
-            //keep round score the same
+        SetScore(score + 1);
+        tokenSpawner.NextQuestion();
 
-             currentWorldIndex++;
+        if (currentRound >= 5)
+        {
+            currentWorldIndex++;
             if (currentWorldIndex >= worldNames.Length)
             {
-                Debug.Log("All worlds complete! Game over.");
                 GameWon();
             }
             else
             {
-                currentRound = 0;            // Reset round for next world
-                SetLives(3);                 // Reset lives for new world
-                ShowWorldIntro();           // Show next world screen
+                currentRound = 0;
+                SetLives(3);
+                ShowWorldIntro();
             }
         }
-    else
+        else
         {
             tokenSpawner.ClearTokens();
             roundCompleteScreen.enabled = true;
-            Time.timeScale = 0f; // Pause the game
+            Time.timeScale = 0f;
         }
     }
 
-    private void SetScore(int score){
-        this.score = score;
-    
+    private void SetScore(int value)
+    {
+        score = value;
     }
 
-    private void SetLives(int lives){
-        this.lives = lives;
-
-        for (int i = 0; i < heartImages.Length; i++){
+    private void SetLives(int value)
+    {
+        lives = value;
+        for (int i = 0; i < heartImages.Length; i++)
+        {
             heartImages[i].enabled = i < lives;
         }
     }
 
-    public void RobotEaten(){
-        this.robot.gameObject.SetActive(false);
-        SetLives(this.lives - 1);
-        if (this.lives > 0){
+    public void RobotEaten()
+    {
+        robot.gameObject.SetActive(false);
+        SetLives(lives - 1);
+
+        if (lives > 0)
+        {
             loseHeartSound.Play();
             Invoke(nameof(ResetState), 1.0f);
         }
-        else{
+        else
+        {
             GameOver();
         }
     }
@@ -228,52 +224,31 @@ private void GameWon()
     private void ShowWorldIntro()
     {
         Time.timeScale = 0f;
-        string worldName = worldNames[currentWorldIndex];
-        worldNameText.text = $"Welcome to {worldName}!";
+        worldNameText.text = $"Welcome to {worldNames[currentWorldIndex]}!";
         worldIntroPanel.SetActive(true);
         goToWorldButton.onClick.RemoveAllListeners();
         goToWorldButton.onClick.AddListener(NewWorld);
 
-        if (backgroundMusic.isPlaying){
-        backgroundMusic.Stop();}
+        if (backgroundMusic.isPlaying)
+            backgroundMusic.Stop();
+
         worldStartSound.Play();
     }
 
-
-    public void PlayCorrectTokenSound()
-    {
-        correctTokenSound.Play();
-    }
-
-    public void PlayWrongTokenSound()
-    {
-        wrongTokenSound.Play();
-    }
+    public void PlayCorrectTokenSound() => correctTokenSound.Play();
+    public void PlayWrongTokenSound() => wrongTokenSound.Play();
 
     public void ActivateNextBug()
-{
-    if (nextBugIndex < inactiveBugs.Length)
     {
-        GameObject bugToActivate = inactiveBugs[nextBugIndex];
-        bugToActivate.SetActive(true);
-
-        // Reset the bug state to ensure correct behavior
-        Bug bugScript = bugToActivate.GetComponent<Bug>();
-        if (bugScript != null)
+        if (nextBugIndex < inactiveBugs.Length)
         {
-            bugScript.ResetState();
+            GameObject bugToActivate = inactiveBugs[nextBugIndex];
+            bugToActivate.SetActive(true);
+
+            Bug bugScript = bugToActivate.GetComponent<Bug>();
+            bugScript?.ResetState();
+
+            nextBugIndex++;
         }
-
-        nextBugIndex++;
     }
-    else
-    {
-        Debug.Log("All bugs have already been activated.");
-    }
-}
-
-
-
-
-
 }
