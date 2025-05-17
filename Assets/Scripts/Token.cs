@@ -11,6 +11,7 @@ public class Token : MonoBehaviour
 
     private TextMeshProUGUI textDisplay;
 
+
      private void Awake()
     {
         // Find the TMP component in children (adjust name if needed)
@@ -43,6 +44,16 @@ public class Token : MonoBehaviour
         else
         {
             gameManager.PlayWrongTokenSound(); // Play sound for wrong token
+            // Assuming you have a reference to the RobotController instance
+            RobotController robotController = FindFirstObjectByType<RobotController>();
+            if (robotController != null)
+            {
+                robotController.updateRobotSpriteError();
+            }
+            else
+            {
+                Debug.LogError("RobotController instance not found!");
+            }
             Debug.Log("Wrong token collected!");
             gameManager.ActivateNextBug();   // Activate a bug when wrong token is collected
 
