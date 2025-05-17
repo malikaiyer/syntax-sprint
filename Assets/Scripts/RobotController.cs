@@ -16,6 +16,7 @@ public class RobotController : MonoBehaviour
     public Sprite robotLeft;
     public Sprite robotRight;
     public Sprite robotIdle;
+    public Sprite robotError;
 
     private SpriteRenderer spriteRenderer;
 
@@ -105,6 +106,11 @@ public class RobotController : MonoBehaviour
         {
             spriteRenderer.sprite = robotIdle;
         }
+    }
+
+    public void updateRobotSpriteError(){
+        spriteRenderer.sprite = robotError;
+        // spriteRenderer.sprite = robotIdle;
     }
 
 

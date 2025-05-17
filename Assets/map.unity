@@ -179,15 +179,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b20d6571110af9940949897d4f4043b9, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: b20d6571110af9940949897d4f4043b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4293256468
-  m_fontColor: {r: 0.080322154, g: 0.8962264, b: 0.8962264, a: 1}
+  m_fontColor: {r: 0.8980392, g: 0.07843137, b: 0.15643933, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_fontSize: 50
   m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -20640,6 +20640,7 @@ MonoBehaviour:
   robotLeft: {fileID: 1349058306535156889, guid: cb6b871426734844bbb3f2a9ca6db6a2, type: 3}
   robotRight: {fileID: 7098405509823949727, guid: 126810ee5bffce246ac92a2d77a507a3, type: 3}
   robotIdle: {fileID: -657961559312475950, guid: 6ac16d92eb8032c4880ec84104f6dc65, type: 3}
+  robotError: {fileID: -5814938844307002675, guid: 1af4b534c0fa4084e83074f80b3ae0ed, type: 3}
 --- !u!58 &1255896478
 CircleCollider2D:
   m_ObjectHideFlags: 0

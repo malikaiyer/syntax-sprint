@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ShowWorldIntro();
+        SetLives(3);
     }
 
     private void Update()
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
 
         if (roundCompleteScreen.enabled && Input.anyKeyDown)
         {
+            print("roundCompletescreen.enabled");
             Time.timeScale = 1f;
             NewRound();
         }
