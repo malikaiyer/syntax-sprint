@@ -18,7 +18,7 @@ Navigate through challenging worlds and avoid enemies as you learn the foundatio
 ![alt text](syntax-sprint-ss2.png)
 
 # Gameplay Video
-[![Game Trailer](https://youtu.be/cO3pDCKVwi8)](https://youtu.be/cO3pDCKVwi8)
+[![Game Trailer](https://youtu.be/cO3pDCKVwi8/maxresdefault.jpg)](https://youtu.be/cO3pDCKVwi8)
 
 
 # Education Game Design Document
