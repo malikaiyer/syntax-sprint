@@ -18,7 +18,8 @@ Navigate through challenging worlds and avoid enemies as you learn the foundatio
 ![alt text](syntax-sprint-ss2.png)
 
 # Gameplay Video
-- (Coming Soon)
+[![Game Trailer](https://youtu.be/cO3pDCKVwi8)](https://youtu.be/cO3pDCKVwi8)
+
 
 # Education Game Design Document
 - [EGDD.md](EGDD.md)
@@ -29,5 +30,5 @@ Navigate through challenging worlds and avoid enemies as you learn the foundatio
 - Wrong Token Sound Effect - freesound_community (https://pixabay.com/sound-effects/invalid-selection-39351/)
   
   # Credits and Acknowledgements
-- Final presentation:
-- Deployed game URL: 
+- Final presentation: https://docs.google.com/presentation/d/1XczUMlifCpyoNfhzz0AcPpGQMSCrfroUyyaPEi7r0Xk/edit?usp=sharing
+- Deployed game URL: https://malikaiyer.github.io/syntax-sprint/
